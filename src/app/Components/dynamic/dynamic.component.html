@@ -1,0 +1,200 @@
+
+<div>
+  <form>
+    <div id="scroll" class="modal-body">
+      <ng-template ngFor let-input [ngForOf]="formData.Sections">
+        <div class="well section col-sm-12">
+          {{ input.SectionName }}
+        </div>
+
+        <div>  
+          <div *ngFor="let subSections of input.SubSections"> 
+            <div *ngIf="subSections.SectionTypeName == 'normal'">
+              <div
+                *ngFor="let sectionAttribute of subSections.SectionAttributes"
+              >
+                <ng-container [ngSwitch]="sectionAttribute.ControlType">
+                  <ng-template [ngSwitchCase]="'tblbutton'"> 
+                    <div class="col-sm-12">
+                      <button [id]="sectionAttribute.ControlName" title="Add" class="btn btn-primary tblbtn"><i
+                          id="hover" [class]="sectionAttribute.CssClassName" aria-hidden="true"></i></button>
+                    </div>
+                  </ng-template>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- handeling section attributes -->
+
+        <div *ngFor="let attribute of input.SectionAttributes">
+          <ng-container [ngSwitch]="attribute.ControlType">
+
+
+            <!---
+            <ng-template [ngSwitchCase]="'hidden'">
+              <div class="col-sm-3">
+                <label for="">
+                  {{ getProperLableName(attribute.LabelName)}}
+                </label>
+                <input/>
+                
+              </div>
+            </ng-template>
+            <ng-template [ngSwitchCase]="'text'">
+
+              <div class="col-sm-3">
+                <label for="">
+                  {{ getProperLableName(attribute.LabelName)}}
+                </label>
+                <input/>
+                
+              </div>
+              
+
+            </ng-template>
+            <ng-template [ngSwitchCase]="'textarea'">
+              <div [class]="attribute.CssClassName">
+                <label for="">
+                  {{ getProperLableName(attribute.LabelName)}}
+                </label>
+                <input/>
+                
+              </div>
+            
+            </ng-template>
+            <ng-template [ngSwitchCase]="'json'">
+              <div class="col-sm-3">
+                <label for="">
+                  {{ getProperLableName(attribute.LabelName)}}
+                </label>
+                <input/>
+                
+              </div>
+           
+            </ng-template>
+            <ng-template [ngSwitchCase]="'number'">
+              <div class="col-sm-3">
+                <label for="">
+                  {{ getProperLableName(attribute.LabelName)}}
+                </label>
+                <input/>
+                
+              </div>
+             
+            </ng-template>
+
+          -->
+
+          <ng-template [ngSwitchCase]="'text'">
+            <div class="col-sm-3">
+                <label>{{attribute.LabelName}}</label>
+                <i *ngIf="(attribute.HelpText != null )" class="fa fa-info-circle"
+                style="margin-left: 5px;margin-right: 5px;text-align: left;"[tooltip ="attribute.HelpText"></i>
+                <input formControlName ="attribute.ControlType" [type]="attribute.ValueType" /> 
+            </div>
+            </ng-template>
+
+
+
+
+           <!--**************************BUTTON********************-->
+         <ng-template [ngSwitchCase] ="'button'">
+               <div>
+                   <button [type]="attribute.ValueType" [name]="attribute.ControlName" [id]="attribute.ControlName">
+                       {{attribute.LabelName}}
+                   </button>
+               </div>
+           </ng-template>
+       
+
+           
+           <!--**************************TEXTAREA********************-->
+           <ng-template [ngSwitchCase] = "'textarea'">
+               <div *ngFor ="let input2 of attribute.Validators">
+               <div [class]="attribute.CssClassName">
+                   <label>{{attribute.LabelName}}</label>
+                   <textarea [id]="attribute.ControlName">
+                   </textarea>
+               </div>
+               </div>
+           </ng-template>
+
+
+           
+           <!--**************************SELECT********************-->
+           <ng-template [ngSwitchCase]="'select'">
+               <div class="col-sm-3">
+                   <div style="display:inline;white-space: nowrap;">
+                   <label>{{attribute.LabelName}}</label>
+               <i *ngIf="(attribute.IncludeRefresh != null && attribute.IncludeRefresh)" class ="fa fa-refresh"
+               style="font-size:10px;float: right;cursor: pointer;margin-top: 8px;margin-right: 2px;"
+               [id]="getIdForRefresh(attribute.ControlName)"></i>
+               <i *ngIf="(attribute.HelpText !=null)" class="fa fa-info-circle" style="margin-left: 5px;margin-right: 5px;text-align: left;" tootltip ="attribute.HelpText">
+               </i>
+               </div>
+                   
+                   <select  [name]="attribute.ControlName" [id]="attribute.ControlName">
+//[formControlName] ="attribute.ControlName"
+                   </select>
+               </div>
+           </ng-template>
+
+
+           <ng-template [ngSwitchCase]="'number'">
+               <div *ngFor ="let input2 of attribute.Validators">
+                   <div class="col-sm-3">
+                       <label>{{attribute.LabelName}}</label>
+                       <input [type]="attribute.ValueType"/>
+                   </div>
+               </div>
+           </ng-template>
+
+
+           <ng-template [ngSwitchCase]="'email'">
+               <div *ngFor="let input2 of attribute.Validators">
+                 <div class="col-sm-3">
+                   <label> {{attribute.LabelName}}</label>
+                   <i *ngIf="(attribute.HelpText != null )" class="fa fa-info-circle"
+                     style="margin-left: 5px;margin-right: 5px;text-align: left;" tooltip="attribute.HelpText"></i>
+                   <input [type]="attribute.ValueType" class="form-control"
+                     [id]="attribute.ControlName"
+                      required />
+                      </div>
+                      </div>
+           </ng-template>
+
+
+           <ng-template [ngSwitchCase] ="'checkbox'">
+               <div class>
+                   <label>{{attribute.LabelName}}</label>
+                   <input type="attribute.ValueType" id="attribute.ControlName">
+               </div>
+           </ng-template>
+
+
+           <ng-template [ngSwitchCase]="'hidden'">
+               <input [type]="attribute.ValueType" [id]="attribute.ControlName">
+           </ng-template>
+
+
+           <ng-template [ngSwitchCase] ="'selectMultiple'">
+               <div>
+                   <label [for]="attribute.ControlName">{{attribute.ControlName}}</label>
+                   <i *ngIf ="(attribute.IncludeRefresh != null && attribute.IncludeRefresh)" class="fa fa-refresh"
+                   style="font-size:10px;float: right;cursor: pointer;margin-top: 8px;margin-right: 2px;"
+                   [id]="getIdForRefresh(attribute.ControlName)"> </i>
+                   <select multiple formControlName ="attribute.ControlName" [name] ="attribute.ControlName" class="form-control"
+                   [id] ="attribute.ControlName" [selectedIndex]="attribute.CurrentValue" required>
+               </select>
+               </div>
+           </ng-template>
+          </ng-container>
+
+        </div>
+
+
+      </ng-template>
+    </div>
+  </form>
+</div>

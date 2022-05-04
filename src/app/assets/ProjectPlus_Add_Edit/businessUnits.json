@@ -1,0 +1,180 @@
+{
+    "Id": 1,
+    "FormName": "Business Units AddEdit",
+    "Menu": "BusinessUnits",
+    "FormType": 2,
+    "GotoBack":true,
+    "Sections": [
+        {
+            "Id": 1770,
+            "FormId": 1,
+            "SectionName": "Business-Units Add/Edit",
+            "SectionTypeName": "Normal",
+            "SectionAttributes": [
+  
+              {
+                "Id": 1,
+                "AttributeId": 25,
+                "LabelName": "BUCode",
+                "ControlName": "txtBUCode",
+                "ControlType": "text",
+                "ModelPropName": "BUCode",
+                "ModelPropType": "string",
+                "ValueType": "text",
+                "Events": [],
+                "CurrentValue": "",
+                "Title": "",
+                "CssClassName": "largeText",
+                "Validators": [
+                  {
+                    "Minlength": 2,
+                    "Maxlength": 10,
+                    "Required": true,
+                    "AdditionalValidator": {}
+                  }
+                ]
+  
+              },
+              {
+                "Id": 12,
+                "AttributeId": 25,
+                "LabelName": "BUName",
+                "ControlName": "txtBUName",
+                "ControlType": "text",
+                "ModelPropName": "BUName",
+                "ModelPropType": "string",
+                "ValueType": "text",
+                "Events": [],
+                "CurrentValue": "",
+                "Title": "",
+                "CssClassName": "largeText",
+                "Validators": [
+                  {
+                    "Minlength": 3,
+                    "Maxlength": 100,
+                    "Required": true,
+                    "AdditionalValidator": {}
+                  }
+                ]
+  
+              },
+  
+              {
+                "Id": 12,
+                "AttributeId": 25,
+                "LabelName": "Description",
+                "ControlName": "txtDescription",
+                "ControlType": "textarea",
+                "ModelPropName": "Description",
+                "ModelPropType": "string",
+                "ValueType": "textarea",
+                "Events": [],
+                "CurrentValue": "",
+                "Title": "",
+                "CssClassName": "col-sm-3",
+                "HelpText" : "Add some text so that it will help in search",
+                "Validators": [
+                  {
+                    "Minlength": 0,
+                    "Maxlength": 200,
+                    "Required": false,
+                    "AdditionalValidator": {}
+                  }
+                ]
+  
+              },
+        
+            
+              {
+                "Id": 0,
+                "AttributeId": 25,
+                "LabelName": "",
+                "ControlName": "hiddenId",
+                "ControlType": "hidden",
+                "ModelPropName": "Id",
+                "ModelPropType": "number",
+                "ValueType": "hidden",
+                "Events": [],
+                "CurrentValue": "",
+                "Title": "",
+                "CssClassName": "medText",
+                "Validators": [
+                    
+                ]
+            },
+            {
+              "Id": 0,
+              "AttributeId": 25,
+              "LabelName": "",
+              "ControlName": "AutoOffset",
+              "ControlType": "hidden",
+              "ModelPropName": "AutoOffset",
+              "ModelPropType": "number",
+              "ValueType": "hidden",
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "medText",
+              "Validators": []
+              },
+            {
+                "Id": 2110,
+                "AttributeId": 25,
+                "LabelName": "Entity State",
+                "ControlName": "hiddenEntitystate",
+                "ControlType": "hidden",
+                "ModelPropName": "EntityState",
+                 "ModelPropType": "number",
+                "ValueType": "hidden",
+                "Events": [],
+                "CurrentValue": "",
+                "Title": "",
+                "CssClassName": "medText",
+                "Validators": [
+                    
+                ]
+            },
+            {
+                "Id": 21101,
+                "AttributeId": 25,
+                "LabelName": "Row Version",
+                "ControlName": "hiddenRowVersion",
+                "ControlType": "hidden",
+                "ModelPropName": "RowVersion",
+                "ModelPropType": "string",
+                "ValueType": "hidden",
+                "Events": [],
+                "CurrentValue": "",
+                "Title": "",
+                "CssClassName": "medText",
+                "Validators": [
+                   
+                ]
+            }
+               
+            ],
+            "DisplayOrder": 1,
+            "Operations": [],
+            "SubSections": [],
+            "BaseEntityId": 1,
+            "IsMultiplicity": false,
+            "ParentSectionId": 3
+        }
+    ],
+  "EndPoint": {
+    "EndpointAddress": "v1/businessUnits",
+    "Id": 1,
+    "Protocol": "GET",
+    "ReturnType": "KeyValue",
+    "Version": "1",
+    "IsAuthenticated": "true",
+    "IsAuthorize": "true",
+    "Headers": [
+      
+    ]
+  },
+    "TenantId": 1,
+    "BaseEntityId": 1,
+    "ModuleId": 1,
+    "BaseFormId": 1
+  }

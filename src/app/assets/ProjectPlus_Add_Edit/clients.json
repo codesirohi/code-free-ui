@@ -1,0 +1,1617 @@
+{
+	"Id": 1,
+	"FormName": "Service Provider Clients Add Edit",
+	"Menu": "ServiceProviderClient",
+	"FormType": 2,
+	"GotoBack":true,
+	"Sections": [
+		{
+			"Id": 10,
+			"FormId": 2,
+			"SectionName": "General Details",
+			"SectionTypeName": "Normal",
+			"SectionAttributes": [
+				{
+					"Id": 31,
+					"AttributeId": 25,
+					"LabelName": "ClientId",
+					"ControlName": "hiddenClientId",
+					"ModelPropName": "ClientId",
+					"ModelPropType": "number",
+					"ControlType": "hidden",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText"
+				},
+				{
+					"Id": 3,
+					"AttributeId": 25,
+					"LabelName": "Client Name",
+					"ControlName": "typoselectClientName",
+					"ModelPropName": "ClientName",
+					"ModelPropType": "string",
+					"ControlType": "typoselect",
+					"ValueType": "text",
+					"Events": [
+						{
+							"EventName": "onkeyup",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "/v1/clients/search",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "ClientName"
+									}
+								],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"affectedControlModelName": "ClientId",
+							"Behaviour": ""
+						},
+						{
+							"EventName": "onblur",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 5,
+							"Maxlength": 50,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 4,
+					"AttributeId": 29,
+					"LabelName": "Division",
+					"ControlName": "selectDivisions",
+					"ModelPropName": "DivisionId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{"Required": true}
+					],
+					"IncludeRefresh":true,
+                    "HelpText":"Choose a Division ",
+					"EndPoint": {
+						"EndpointAddress": "/v1/Divisions/getlist",
+						"Id": 13,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "DivisionNRegionName "
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							},
+							{
+								"KeyName": "RequestModel",
+								"ValueName": "{'Children':['Region']}"
+							}
+						]
+					}
+				},
+			
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenId",
+					"ControlType": "hidden",
+					"ModelPropName": "Id",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenOfficeAddressId",
+					"ControlType": "hidden",
+					"ModelPropName": "OfficeAddressId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenBillingAddressId",
+					"ControlType": "hidden",
+					"ModelPropName": "BillingAddressId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 2110,
+					"AttributeId": 25,
+					"LabelName": "Entity State",
+					"ControlName": "hiddenEntitystate",
+					"ControlType": "hidden",
+					"ModelPropName": "EntityState",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 21101,
+					"AttributeId": 25,
+					"LabelName": "Row Version",
+					"ControlName": "hiddenRowVersion",
+					"ControlType": "hidden",
+					"ModelPropName": "RowVersion",
+					"ModelPropType": "string",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 17,
+					"AttributeId": 25,
+					"LabelName": "Mobile Phone",
+					"ControlName": "txtBillingPhone",
+					"ModelPropName": "BillingPhone",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+                        {
+                            "EventName": "onkeypress",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 8,
+                            "Maxlength": 16,
+							"Pattern": {},
+							"ValidationMsg": "* Enter Valid Phone No",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 17,
+					"AttributeId": 25,
+					"LabelName": "Office Phone",
+					"ControlName": "txtOfficePhone",
+					"ModelPropName": "OfficePhone",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+                        {
+                            "EventName": "onkeypress",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 8,
+                            "Maxlength": 16,
+							"Pattern": {},
+							"ValidationMsg": "* Enter Valid Phone No",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 18,
+					"AttributeId": 31,
+					"LabelName": "Office Email",
+					"ControlName": "textOfficeEmail",
+					"ModelPropName": "OfficeEmail",
+					"ModelPropType": "string",
+					"ControlType": "email",
+					"ValueType": "email",
+					"Events": [
+                        {
+                            "EventName": "onblur",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 6,
+                            "Maxlength": 100,
+							"ValidationMsg": "* Enter Valid Email",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 18,
+					"AttributeId": 31,
+					"LabelName": "Billing Email",
+					"ControlName": "textBillingEmail",
+					"ModelPropName": "BillingEmail",
+					"ModelPropType": "string",
+					"ControlType": "email",
+					"ValueType": "email",
+					"Events": [
+                        {
+                            "EventName": "onblur",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 6,
+							"Maxlength": 100,
+							
+							"ValidationMsg": "* Enter Valid Email",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 6,
+					"AttributeId": 27,
+					"LabelName": "Description",
+					"ControlName": "txtDescription",
+					"ModelPropName": "Description",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"HelpText" : "Add Some Description",
+					"Validators": [
+						{
+							"Minlength": 0,
+							"Maxlength": 255,
+							"Required": false,
+							"AdditionalValidator": {}
+						}
+					]
+				}
+
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 11,
+			"FormId": 1,
+			"SectionName": "Office Details",
+			"SectionTypeName": "object",
+			"ModelObjectName": "OfficeAddress",
+			"SectionAttributes": [
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenOfficeAddress_Id",
+					"ControlType": "hidden",
+					"ModelPropName": "OfficeAddressId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 2110,
+					"AttributeId": 25,
+					"LabelName": "Entity State",
+					"ControlName": "hiddenOfficeAddressEntitystate",
+					"ControlType": "hidden",
+					"ModelPropName": "EntityState",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 21101,
+					"AttributeId": 25,
+					"LabelName": "Row Version",
+					"ControlName": "hiddenOfficeAddressRowVersion",
+					"ControlType": "hidden",
+					"ModelPropName": "RowVersion",
+					"ModelPropType": "string",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				
+				{
+					"Id": 13,
+					"AttributeId": 25,
+					"LabelName": "Country",
+					"ControlName": "selectOfficeAddressCountries",
+					"ControlType": "select",
+					"ValueType": "select",
+					"ModelPropName": "CountryId",
+					"ModelPropType": "number",
+					"Title": "",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "4",
+							"affectedControlName": "selectOfficeAddressStates",
+							"affectedControlModelName": "StateId",
+							"EndPoint": {
+								"EndpointAddress": "/v1/states/getlist?countryid={keyId}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "StateName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						}
+					],
+					"CurrentValue": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+					   }
+					],
+				    "IncludeRefresh":true,
+					"EndPoint": {
+						"EndpointAddress": "/v1/countries/getlist",
+						"Id": 11,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "false",
+						"IsAuthorize": "false",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "CountryName"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							}
+						]
+					}
+				},
+				{
+					"Id": 14,
+					"AttributeId": 41,
+					"LabelName": "State",
+					"ControlName": "selectOfficeAddressStates",
+					"ControlType": "select",
+					"ValueType": "select",
+					"ModelPropName": "StateId",
+					"ModelPropType": "number",
+					"Title": "",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "4",
+							"affectedControlName": "selectOfficeAddressCities",
+							"affectedControlModelName": "CityId",
+							"IsLevel3":true,
+							"EndPoint": {
+								"EndpointAddress": "/v1/cities/getlist?stateid={keyId}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "CityName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						}
+					],
+					"CurrentValue": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						   }
+					]
+				},
+				{
+					"Id": 13,
+					"AttributeId": 25,
+					"LabelName": "City",
+					"ControlName": "selectOfficeAddressCities",
+					"ControlType": "select",
+					"ModelPropName": "CityId",
+					"ModelPropType": "number",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "largeText",
+					"EndPoint": {
+						"EndpointAddress": "",
+						"Id": 11,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "false",
+						"IsAuthorize": "false",
+						"Headers": [
+							
+						]
+					},
+					"Validators": [
+						{
+							"Required": true
+						   }
+					]
+				},
+				{
+					"Id": 121,
+					"AttributeId": 37,
+					"LabelName": "Zipcode",
+					"ControlName": "txtOfficeAddressZipcode",
+					"ModelPropName": "ZipCode",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+                        {
+                            "EventName": "onkeypress",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 4,
+							"Maxlength": 6,
+							"ValidationMsg": "* Enter valid zipcode",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 19,
+					"AttributeId": 33,
+					"LabelName": "Street Address",
+					"ControlName": "txtOfficeAddressStreetAddress",
+					"ModelPropName": "StreetAddress",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"Validators": [
+						{
+							"Minlength": 10,
+							"Maxlength": 255,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 6,
+					"AttributeId": 27,
+					"LabelName": "Landmark",
+					"ControlName": "txtLandmark",
+					"ModelPropName": "Description",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"HelpText" : "The keyword can help in search",
+					"Validators": [
+						{
+							"Minlength": 0,
+							"Maxlength": 255,
+							"Required": false,
+							"AdditionalValidator": {}
+						}
+					]
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 12,
+			"FormId": 1,
+			"SectionName": "Billing Details",
+			"SectionTypeName": "object",
+			"ModelObjectName": "BillingAddress",
+			"SectionAttributes": [
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenBillingAddress_Id",
+					"ControlType": "hidden",
+					"ModelPropName": "BillingAddressId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 2110,
+					"AttributeId": 25,
+					"LabelName": "Entity State",
+					"ControlName": "hiddenBillingAddressEntitystate",
+					"ControlType": "hidden",
+					"ModelPropName": "EntityState",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 21101,
+					"AttributeId": 25,
+					"LabelName": "Row Version",
+					"ControlName": "hiddenBillingAddressRowVersion",
+					"ControlType": "hidden",
+					"ModelPropName": "RowVersion",
+					"ModelPropType": "string",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 13,
+					"AttributeId": 25,
+					"LabelName": "Country",
+					"ControlName": "selectBillingAddressCountries",
+					"ControlType": "select",
+					"ValueType": "select",
+					"ModelPropName": "CountryId",
+					"ModelPropType": "number",
+					"Title": "",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "4",
+							"affectedControlName": "selectBillingAddressStates",
+							"affectedControlModelName": "StateId",
+							"EndPoint": {
+								"EndpointAddress": "/v1/states/getlist?countryid={keyId}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "StateName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						}
+					],
+					"CurrentValue": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						   }
+					],
+					"IncludeRefresh":true,
+					"EndPoint": {
+						"EndpointAddress": "/v1/countries/getlist",
+						"Id": 11,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "false",
+						"IsAuthorize": "false",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "CountryName"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							}
+						]
+					}
+				},
+				{
+					"Id": 14,
+					"AttributeId": 41,
+					"LabelName": "State",
+					"ControlName": "selectBillingAddressStates",
+					"ControlType": "select",
+					"ValueType": "select",
+					"ModelPropName": "StateId",
+					"ModelPropType": "number",
+					"Title": "",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "4",
+							"affectedControlName": "selectBillingAddressCities",
+							"affectedControlModelName": "CityId",
+							"IsLevel3":true,
+							"EndPoint": {
+								"EndpointAddress": "/v1/cities/getlist?stateid={keyId}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "CityName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						}
+					],
+					"CurrentValue": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						   }
+					]
+				},
+				{
+					"Id": 13,
+					"AttributeId": 25,
+					"LabelName": "City",
+					"ControlName": "selectBillingAddressCities",
+					"ControlType": "select",
+					"ModelPropName": "CityId",
+					"ModelPropType": "number",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "largeText",
+					"EndPoint": {
+						"EndpointAddress": "",
+						"Id": 11,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "false",
+						"IsAuthorize": "false",
+						"Headers": [
+							
+						]
+					},
+					"Validators": [
+						{
+							"Required": true
+						   }
+					]
+				},
+				{
+					"Id": 121,
+					"AttributeId": 37,
+					"LabelName": "Zipcode",
+					"ControlName": "txtBillingAddressZipcode",
+					"ModelPropName": "ZipCode",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+                        {
+                            "EventName": "onkeypress",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 4,
+							"Maxlength": 6,
+							"Pattern": "",
+							"ValidationMsg": "* Enter valid zipcode",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 19,
+					"AttributeId": 33,
+					"LabelName": "Street Address",
+					"ControlName": "txtBillingAddressStreetAddress",
+					"ModelPropName": "StreetAddress",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"Validators": [
+						{
+							"Minlength": 10,
+							"Maxlength": 255,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 6,
+					"AttributeId": 27,
+					"LabelName": "Landmark",
+					"ControlName": "txtLandmark",
+					"ModelPropName": "Description",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"HelpText" : "The keyword can help in search",
+					"Validators": [
+						{
+							"Minlength": 0,
+							"Maxlength": 255,
+							"Required": false,
+							"AdditionalValidator": {}
+						}
+					]
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 13,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Attachment",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 2327,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddAttachment",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblAttachment",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 23231,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblAttachment",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "ServiceProviderClientAttachments",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenServiceProviderClientId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "ServiceProviderClientId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": [
+								{
+
+									"Required": true
+								}
+							]
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Attachment",
+							"ControlName": "fileAttachment",
+							"ModelPropName": "AttachmentGuid",
+							"ControlType": "tblfile",
+							"ModelPropType": "",
+							"IsHidden": false,
+							"ValueType": "file",
+							"Events": [{
+									"EventName": "onchange",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "/v1/File/ServerFile",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [],
+										"ModuleName": "platform"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"Behaviour": ""
+								}
+							],
+							"SecondaryEntity" :{
+								"ModelPropName": "FileName",
+								"ControlProperty":"Value"
+							},
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col2HeaderClass1",
+							"CssClassName": "col1Class1",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 255,
+									"Required": false,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 21122,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteAttachment",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblAttachment",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 15,
+			"FormId": 1,
+			"SectionName": "Client Admin Details",
+			"SectionTypeName": "Normal",
+			"SectionAttributes": [
+				
+				{
+					"Id": 211,
+					"AttributeId": 252,
+					"LabelName": "",
+					"ControlName": "hiddenClientUserId",
+					"ControlType": "hidden",
+					"ModelPropName": "ClientUserId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText"
+					
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+                    "Id": 3,
+                    "AttributeId": 21,
+                    "LabelName": "Name Prefix",
+                    "ControlName": "selectTitles",
+                    "ModelPropName": "Title",
+                    "ModelPropType": "string",
+                    "ControlType": "select",
+                    "ValueType": "select",
+                    "Events": [],
+                    "CurrentValue": "",
+                    "Title": "",
+                    "CssClassName": "medText",
+                    "Validators": [
+                        {
+                            "Required": true
+                           }
+                    ],
+                    "IncludeRefresh":true,
+                    "HelpText":"Choose a Prefix",
+                    "EndPoint": {
+                        "EndpointAddress": "/v1/common/enums/TitleTypes",
+                        "Id": 11,
+                        "Protocol": "GET",
+                        "ReturnType": "KeyValue",
+                        "Version": "1",
+                        "IsAuthenticated": "false",
+                        "IsAuthorize": "false",
+                        "Headers": [
+                            {
+                                "KeyName": "KeyName",
+                                "ValueName": "Id"
+                            },
+                            {
+                                "KeyName": "ValueName",
+                                "ValueName": "TitleTypes"
+                            }
+                        ]
+                    }
+				},   
+				{
+					"Id": 653,
+					"AttributeId": 64,
+					"LabelName": "First Name",
+					"ControlName": "txtFirstName",
+					"ModelPropName": "FirstName",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 3,
+							"Maxlength": 20,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},			
+				{
+					"Id": 6581,
+					"AttributeId": 62,
+					"LabelName": "Last Name",
+					"ControlName": "txtLastName",
+					"ModelPropName": "LastName",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 2,
+							"Maxlength": 20,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+		
+				{
+					"Id": 17,
+					"AttributeId": 25,
+					"LabelName": "Mobile Phone",
+					"ControlName": "txtMobilePhone",
+					"ModelPropName": "MobilePhone",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+                        {
+                            "EventName": "onkeypress",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 8,
+                            "Maxlength": 16,
+							"Pattern": {},
+							"ValidationMsg": "* Enter Valid Phone No",
+							"Required": false,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 655,
+					"AttributeId": 66,
+					"LabelName": "Email For Registration",
+					"ControlName": "textEmail",
+					"ModelPropName": "Email",
+					"ModelPropType": "string",
+					"ControlType": "email",
+					"ValueType": "email",
+					"Events": [
+                        {
+                            "EventName": "onblur",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 6,
+							"Maxlength": 100,
+							"ValidationMsg": "* Enter Valid Email",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+                    "Id": 6,
+                    "AttributeId": 23,
+                    "LabelName": "Login Name(email)",
+                    "ControlName": "txtLoginName",
+                    "ModelPropType": "string",
+                    "ModelPropName": "LoginName",
+                    "ControlType": "email",
+                    "ValueType": "email",
+                    "Events": [
+                        {
+                            "EventName": "onblur",
+                            "ParentControlId": "7",
+                            "EndPoint": {
+								"EndpointAddress": "/v1/common/CheckUserData/{fieldName}/{input}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+                                "Headers": [ ],
+                                "ModuleName":"projectplus"
+							},
+                            "RouteEntry": null,
+                            "affectedControlName": "",
+                            "Behaviour": ""
+                        }],
+                    "CurrentValue": "",
+                    "Title": "",
+					"CssClassName": "medText",
+					"HelpText":" Email should be valid not repeat(Unique)",
+                    "Validators": [
+                        {
+                            "Minlength": 6,
+                            "Maxlength": 100,
+                            "Required": true,
+                            "ServiceValidationToReact" : true,
+                            "ValidationMsg": "Login name already exists",
+                            "AdditionalValidator":[
+                                {
+                                   "TagToReplace":"{fieldName}",
+                                   "ValueTakenFrom":"Model"
+                                  
+                                  },
+                                  {
+                                   "TagToReplace":"{input}",
+                                   "ValueTakenFrom":"Control"
+                                  }
+                           ]
+                        }
+                    ]
+                },
+				{
+					"Id": 22,
+					"AttributeId": 23,
+					"LabelName": "GeoHead",
+					"ControlName": "selectGeoHeads",
+					"ModelPropName": "GeoHeadId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [{
+                        "Required": false
+					}],
+					"IncludeRefresh":true,
+                    "HelpText":" GeoHead(div Manager) for the client",
+					"EndPoint": {
+						"EndpointAddress": "/v1/common/PersonResponsibles/DivManager",
+						"Id": 8,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "StaffName "
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							}
+						]
+					}
+				}
+			
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		}
+	],
+	"EndPoint": {
+		"EndpointAddress": "v1/ServiceProviderClients",
+		"Id": 1,
+		"Protocol": "GET",
+		"ReturnType": "KeyValue",
+		"Version": "1",
+		"IsAuthenticated": "true",
+		"IsAuthorize": "true",
+		"Headers": [
+			{
+				"KeyName": "RequestModel",
+				"ValueName": "{'Children':['Client','BillingAddress','BillingAddress.City', 'BillingAddress.City.State', 'BillingAddress.City.State.Country','OfficeAddress','OfficeAddress.City', 'OfficeAddress.City.State', 'OfficeAddress.City.State.Country','ServiceProviderClientAttachments']}"
+			}
+		]
+	},
+	"TenantId": 1,
+	"BaseEntityId": 1,
+	"ModuleId": 1,
+	"BaseFormId": 1
+}

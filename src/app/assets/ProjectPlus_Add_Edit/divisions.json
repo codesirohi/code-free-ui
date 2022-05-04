@@ -1,0 +1,815 @@
+{
+  "Id": 1,
+  "FormName": "Division AddEdit",
+  "Menu": "Divisions",
+  "FormType": 2,
+  "GotoBack": true,
+  "Sections": [
+    {
+      "Id": 10,
+      "FormId": 1,
+      "SectionName": "Division",
+      "SectionTypeName": "Normal",
+      "SectionAttributes": [
+        {
+          "Id": 20,
+          "AttributeId": 25,
+          "LabelName": "DivisionName",
+          "ControlName": "txtDivisionName",
+          "ControlType": "text",
+          "ModelPropName": "DivisionName",
+          "ModelPropType": "string",
+          "ValueType": "text",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Minlength": 3,
+              "Maxlength": 30,
+              "Required": true,
+              "AdditionalValidator": {}
+            }
+          ]
+        },
+    
+        {
+          "Id": 1672,
+          "AttributeId": 25,
+          "LabelName": "Description",
+          "ControlName": "txtDescription",
+          "ControlType": "textarea",
+          "ModelPropName": "Description",
+          "ModelPropType": "string",
+          "ValueType": "textarea",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "col-sm-3",
+          "HelpText": "The keyword can help in search",
+          "Validators": [
+            {
+              "Minlength": 0,
+              "Maxlength": 255,
+              "Required": false,
+              "AdditionalValidator": {}
+            }
+          ]
+        },
+        {
+          "Id": 11,
+          "AttributeId": 25,
+          "LabelName": "Region",
+          "ControlName": "selectRegions",
+          "ControlType": "select",
+          "ModelPropName": "RegionId",
+          "ModelPropType": "number",
+          "ValueType": "select",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "largeText",
+          "Validators": [{ "Required": true }],
+          "IncludeRefresh": true,
+          "HelpText": "Choose a Region",
+          "EndPoint": {
+            "EndpointAddress": "/v1/regions/getlist",
+            "Id": 1,
+            "Protocol": "GET",
+            "ReturnType": "KeyValue",
+            "Version": "1",
+            "IsAuthenticated": "true",
+            "IsAuthorize": "true",
+            "Headers": [
+              {
+                "KeyName": "KeyName",
+                "ValueName": "Id"
+              },
+              {
+                "KeyName": "ValueName",
+                "ValueName": "RegionName"
+              },
+              {
+                "KeyName": "IncludeSelect",
+                "ValueName": "true"
+              }
+            ]
+          }
+        },
+        {
+          "Id": 18,
+          "AttributeId": 25,
+          "LabelName": "PersonResponsible",
+          "ControlName": "selectPersonResponsible",
+          "ControlType": "select",
+          "ModelPropName": "PersonResponsible",
+          "ModelPropType": "number",
+          "ValueType": "select",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "DependentOptionsForSelectNList": {
+            "Id": 2,
+            "AttributeId": 3,
+            "GetEndpoint": "",
+            "KeyField": "",
+            "ValueField": ""
+          },
+          "Validators": [{ "Required": false }],
+          "IncludeRefresh": true,
+          "HelpText": "Choose a Person",
+          "EndPoint": {
+            "EndpointAddress": "/v1/common/PersonResponsibles/DivManager",
+            "Id": 1,
+            "Protocol": "GET",
+            "ReturnType": "KeyValue",
+            "Version": "1",
+            "IsAuthenticated": "true",
+            "IsAuthorize": "true",
+            "keyName": "userId",
+            "valueName": "userValue",
+            "Headers": []
+          }
+        },
+        {
+          "Id": 0,
+          "AttributeId": 25,
+          "LabelName": "",
+          "ControlName": "hiddenId",
+          "ControlType": "hidden",
+          "ModelPropName": "Id",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        },
+        {
+          "Id": 0,
+          "AttributeId": 25,
+          "LabelName": "",
+          "ControlName": "AutoOffset",
+          "ControlType": "hidden",
+          "ModelPropName": "AutoOffset",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": []
+        },
+        {
+          "Id": 0,
+          "AttributeId": 25,
+          "LabelName": "",
+          "ControlName": "hiddenAddressId",
+          "ControlType": "hidden",
+          "ModelPropName": "AddressId",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": []
+        },
+        {
+          "Id": 0,
+          "AttributeId": 25,
+          "LabelName": "Entity State",
+          "ControlName": "hiddenEntitystate",
+          "ControlType": "hidden",
+          "ModelPropName": "EntityState",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        },
+        {
+          "Id": 21101,
+          "AttributeId": 25,
+          "LabelName": "Row Version",
+          "ControlName": "hiddenAdressRowVersion",
+          "ControlType": "hidden",
+          "ModelPropName": "RowVersion",
+          "ModelPropType": "string",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        }
+      ],
+      "DisplayOrder": 1,
+      "Operations": [],
+      "SubSections": [],
+      "BaseEntityId": 1,
+      "IsMultiplicity": false,
+      "ParentSectionId": 3
+    },
+    {
+      "Id": 11,
+      "FormId": 1,
+      "SectionName": "division Address",
+      "SectionTypeName": "object",
+      "ModelObjectName": "Address",
+      "SectionAttributes": [
+        {
+          "Id": 15,
+          "AttributeId": 25,
+          "LabelName": "StreetAddress",
+          "ControlName": "txtStreetAddress",
+          "ControlType": "textarea",
+          "ModelPropName": "StreetAddress",
+          "ModelPropType": "string",
+          "ValueType": "textarea",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "col-sm-3",
+          "Validators": [
+            {
+              "Minlength": 10,
+              "Maxlength": 255,
+              "Required": true,
+              "AdditionalValidator": {}
+            }
+          ]
+        },
+        {
+          "Id": 12,
+          "AttributeId": 25,
+          "LabelName": "Landmark",
+          "ControlName": "txtLandmark",
+          "ControlType": "textarea",
+          "ModelPropName": "Description",
+          "ModelPropType": "string",
+          "ValueType": "textarea",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "col-sm-3",
+          "HelpText": "The keyword can help in search",
+          "Validators": [
+            {
+              "Minlength": 0,
+              "Maxlength": 255,
+              "Required": false,
+              "AdditionalValidator": {}
+            }
+          ]
+        },
+        {
+          "Id": 14,
+          "AttributeId": 25,
+          "LabelName": "Zipcode",
+          "ControlName": "txtZipcode",
+          "ModelPropName": "ZipCode",
+          "ModelPropType": "string",
+          "ControlType": "text",
+          "ValueType": "text",
+          "Events": [
+            {
+              "EventName": "onkeypress",
+              "ParentControlId": "7",
+              "EndPoint": {
+                "EndpointAddress": "",
+                "Id": 10,
+                "Protocol": "GET",
+                "ReturnType": "KeyValue",
+                "Version": "1",
+                "IsAuthenticated": "false",
+                "IsAuthorize": "false",
+                "Headers": [],
+                "ModuleName": "projectplus"
+              },
+              "RouteEntry": null,
+              "affectedControlName": "",
+              "Behaviour": ""
+            }
+          ],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Minlength": 4,
+              "Maxlength": 6,
+              "Pattern": "^[0-9]*$",
+              "ValidationMsg": "* EnterValid Zipcode",
+              "Required": true,
+              "AdditionalValidator": {}
+            }
+          ]
+        },
+        {
+          "Id": 13,
+          "AttributeId": 25,
+          "LabelName": "Country",
+          "ControlName": "selectCountries",
+          "ControlType": "select",
+          "ValueType": "select",
+          "ModelPropName": "CountryId",
+          "ModelPropType": "number",
+          "Title": "",
+          "Events": [
+            {
+              "EventName": "onchange",
+              "ParentControlId": "4",
+              "affectedControlName": "selectStates",
+              "affectedControlModelName": "StateId",
+              "EndPoint": {
+                "EndpointAddress": "/v1/states/getlist?countryid={keyId}",
+                "Id": 10,
+                "Protocol": "GET",
+                "ReturnType": "KeyValue",
+                "Version": "1",
+                "IsAuthenticated": "false",
+                "IsAuthorize": "false",
+                "Headers": [
+                  {
+                    "KeyName": "KeyName",
+                    "ValueName": "Id"
+                  },
+                  {
+                    "KeyName": "ValueName",
+                    "ValueName": "StateName"
+                  },
+                  {
+                    "KeyName": "IncludeSelect",
+                    "ValueName": "true"
+                  }
+                ]
+              }
+            }
+          ],
+          "CurrentValue": "",
+          "CssClassName": "medText",
+          "Validators": [{ "Required": true }],
+          "IncludeRefresh": true,
+          "EndPoint": {
+            "EndpointAddress": "/v1/countries/getlist",
+            "Id": 11,
+            "Protocol": "GET",
+            "ReturnType": "KeyValue",
+            "Version": "1",
+            "IsAuthenticated": "false",
+            "IsAuthorize": "false",
+            "Headers": [
+              {
+                "KeyName": "KeyName",
+                "ValueName": "Id"
+              },
+              {
+                "KeyName": "ValueName",
+                "ValueName": "CountryName"
+              },
+              {
+                "KeyName": "IncludeSelect",
+                "ValueName": "true"
+              }
+            ]
+          }
+        },
+        {
+          "Id": 14,
+          "AttributeId": 41,
+          "LabelName": "State",
+          "ControlName": "selectStates",
+          "ControlType": "select",
+          "ValueType": "select",
+          "ModelPropName": "StateId",
+          "ModelPropType": "number",
+          "Title": "",
+          "Events": [
+            {
+              "EventName": "onchange",
+              "ParentControlId": "4",
+              "affectedControlName": "selectCities",
+              "affectedControlModelName": "CityId",
+              "IsLevel3": true,
+              "EndPoint": {
+                "EndpointAddress": "/v1/cities/getlist?stateid={keyId}",
+                "Id": 10,
+                "Protocol": "GET",
+                "ReturnType": "KeyValue",
+                "Version": "1",
+                "IsAuthenticated": "false",
+                "IsAuthorize": "false",
+                "Headers": [
+                  {
+                    "KeyName": "KeyName",
+                    "ValueName": "Id"
+                  },
+                  {
+                    "KeyName": "ValueName",
+                    "ValueName": "CityName"
+                  },
+                  {
+                    "KeyName": "IncludeSelect",
+                    "ValueName": "true"
+                  }
+                ]
+              }
+            }
+          ],
+          "CurrentValue": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        },
+        {
+          "Id": 13,
+          "AttributeId": 25,
+          "LabelName": "City",
+          "ControlName": "selectCities",
+          "ControlType": "select",
+          "ModelPropName": "CityId",
+          "ModelPropType": "number",
+          "ValueType": "select",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "largeText",
+          "EndPoint": {
+            "EndpointAddress": "",
+            "Id": 11,
+            "Protocol": "GET",
+            "ReturnType": "KeyValue",
+            "Version": "1",
+            "IsAuthenticated": "false",
+            "IsAuthorize": "false",
+            "Headers": []
+          },
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        },
+        {
+          "Id": 0,
+          "AttributeId": 25,
+          "LabelName": "",
+          "ControlName": "hiddenAdressId",
+          "ControlType": "hidden",
+          "ModelPropName": "Id",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        },
+        {
+          "Id": 0,
+          "AttributeId": 25,
+          "LabelName": "",
+          "ControlName": "AutoOffset",
+          "ControlType": "hidden",
+          "ModelPropName": "AutoOffset",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": []
+        },
+        {
+          "Id": 2110,
+          "AttributeId": 25,
+          "LabelName": "Entity State",
+          "ControlName": "hiddenEntitystate",
+          "ControlType": "hidden",
+          "ModelPropName": "EntityState",
+          "ModelPropType": "number",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Minlength": 2,
+              "Maxlength": 50,
+              "Required": true,
+              "AdditionalValidator": {}
+            }
+          ]
+        },
+        {
+          "Id": 21101,
+          "AttributeId": 25,
+          "LabelName": "Row Version",
+          "ControlName": "hiddenRowVersion",
+          "ControlType": "hidden",
+          "ModelPropName": "RowVersion",
+          "ModelPropType": "string",
+          "ValueType": "hidden",
+          "Events": [],
+          "CurrentValue": "",
+          "Title": "",
+          "CssClassName": "medText",
+          "Validators": [
+            {
+              "Required": true
+            }
+          ]
+        }
+      ],
+      "DisplayOrder": 1,
+      "Operations": [],
+      "SubSections": [],
+      "BaseEntityId": 1,
+      "IsMultiplicity": false,
+      "ParentSectionId": 3
+    },
+    {
+      "Id": 230,
+      "FormId": 34,
+      "BaseEntityId": 45,
+      "SectionTypeName": "table",
+      "SectionName": "Division Holidays",
+      "SectionAttributes": [],
+      "DisplayOrder": 6,
+      "SubSections": [
+        {
+          "Id": 237,
+          "FormId": 34,
+          "BaseEntityId": 45,
+          "SectionTypeName": "normal",
+          "SectionName": "Add Section",
+          "SectionAttributes": [
+            {
+              "Id": 212,
+              "AttributeId": 25,
+              "LabelName": "Add",
+              "ControlName": "btnAddHoliday",
+              "ControlType": "tblbutton",
+              "ModelPropName": "",
+              "ModelPropType": "",
+              "ValueType": "button",
+              "Events": [
+                {
+                  "EventName": "onclick",
+                  "ParentControlId": "6",
+                  "EndPoint": null,
+                  "RouteEntry": null,
+                  "affectedControlName": "tblHolidays",
+                  "Behaviour": "TableAddNewRow"
+                }
+              ],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "fa fa-plus",
+              "Validators": []
+            }
+          ],
+          "DisplayOrder": 6,
+          "IsMultiplicity": false,
+          "Operations": null,
+          "ParentSectionId": 23,
+          "SubSections": []
+        },
+        {
+          "Id": 231,
+          "FormId": 34,
+          "BaseEntityId": 45,
+          "SectionTypeName": "table",
+          "SectionName": "tblHolidays",
+          "CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+          "ModelCollectionName": "DivisionHolidays",
+          "Columns": [],
+          "SectionAttributes": [
+            {
+              "Id": 0,
+              "AttributeId": 25,
+              "LabelName": "",
+              "ControlName": "hiddenId",
+              "ControlType": "tblhidden",
+              "ModelPropName": "Id",
+              "ModelPropType": "number",
+              "ValueType": "hidden",
+              "IsHidden": true,
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "medText",
+              "Validators": []
+            },
+            {
+              "Id": 0,
+              "AttributeId": 25,
+              "LabelName": "",
+              "ControlName": "hiddenDivisionId",
+              "ControlType": "tblhidden",
+              "ModelPropName": "DivisionId",
+              "ModelPropType": "number",
+              "ValueType": "hidden",
+              "IsHidden": true,
+              "Events": [],
+              "CurrentValue": "hiddenId",
+              "Title": "",
+              "CssClassName": "medText",
+              "Validators": []
+            },
+            {
+              "Id": 0,
+              "AttributeId": 25,
+              "LabelName": "",
+              "ControlName": "AutoOffset",
+              "ControlType": "tblhidden",
+              "ModelPropName": "AutoOffset",
+              "ModelPropType": "number",
+              "ValueType": "hidden",
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "medText",
+              "Validators": []
+            },
+            {
+              "Id": 212,
+              "AttributeId": 25,
+              "LabelName": "EntityState",
+              "ControlName": "hiddenEntityState",
+              "ControlType": "tblhidden",
+              "ModelPropName": "EntityState",
+              "ModelPropType": "number",
+              "ValueType": "hidden",
+              "IsHidden": true,
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "medText",
+              "Validators": []
+            },
+            {
+              "Id": 21101,
+              "AttributeId": 25,
+              "LabelName": "Row Version",
+              "ControlName": "hiddenRowVersion",
+              "ControlType": "tblhidden",
+              "ModelPropName": "RowVersion",
+              "ModelPropType": "string",
+              "ValueType": "hidden",
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "medText",
+              "Validators": [
+                {
+                  "Minlength": 2,
+                  "Maxlength": 50,
+                  "Required": true,
+                  "AdditionalValidator": {}
+                }
+              ]
+            },
+            {
+              "Id": 213,
+              "AttributeId": 25,
+              "LabelName": "Holiday",
+              "ControlName": "txtHoliday",
+              "ControlType": "tbldate",
+              "ModelPropName": "Holiday",
+              "ModelPropType": "date",
+              "IsHidden": false,
+              "ValueType": "date",
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssHeaderClassName": "col3HeaderClass1",
+              "CssClassName": "col3Class1",
+              "Validators": [{ "Required": true }]
+            },
+            {
+              "Id": 214,
+              "AttributeId": 25,
+              "LabelName": "Holiday Description",
+              "ControlName": "txtHolidayDescription",
+              "ControlType": "tbltextarea",
+              "ModelPropName": "HolidayDescription",
+              "ModelPropType": "string",
+              "IsHidden": false,
+              "ValueType": "textarea",
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssHeaderClassName": "col3HeaderClass2",
+              "CssClassName": "col3Class2",
+              "Validators": [
+                {
+                  "Minlength": 1,
+                  "Maxlength": 30,
+                  "Required": true,
+                  "AdditionalValidator": {}
+                }
+              ]
+            },
+            {
+              "Id": 215,
+              "AttributeId": 25,
+              "LabelName": "Is Mandatory",
+              "ControlName": "isMandatory",
+              "ControlType": "tblcheckbox",
+              "ModelPropName": "IsMandatory",
+              "ModelPropType": "boolean",
+              "IsHidden": false,
+              "ValueType": "checkbox",
+              "Events": [],
+              "CurrentValue": "",
+              "Title": "",
+              "CssHeaderClassName": "col3HeaderClass3",
+              "CssClassName": "col3Class3",
+              "Validators": []
+            },
+            {
+              "Id": 216,
+              "AttributeId": 25,
+              "LabelName": "Delete",
+              "ControlName": "btnDeleteHoliday",
+              "ControlType": "tblbuttonRowDelete",
+              "ModelPropName": "",
+              "ModelPropType": "",
+              "ValueType": "button",
+              "Events": [
+                {
+                  "EventName": "onclick",
+                  "ParentControlId": "7",
+                  "EndPoint": null,
+                  "RouteEntry": null,
+                  "affectedControlName": "tblHolidays",
+                  "Behaviour": "TableDeleteCurrentRow"
+                }
+              ],
+              "CurrentValue": "",
+              "Title": "",
+              "CssClassName": "btn delete btn-xs btn-radius center blue",
+              "IconClass": "fa fa-trash",
+              "IncludeIcon": true,
+              "Validators": []
+            }
+          ],
+          "DisplayOrder": 6,
+          "IsMultiplicity": false,
+          "Operations": null,
+          "ParentSectionId": 23,
+          "SubSections": []
+        }
+      ],
+      "IsMultiplicity": false,
+      "ParentSectionId": 23,
+      "Operations": []
+    }
+  ],
+  "EndPoint": {
+    "EndpointAddress": "v1/divisions",
+    "Id": 1,
+    "Protocol": "GET",
+    "ReturnType": "KeyValue",
+    "Version": "1",
+    "IsAuthenticated": "true",
+    "IsAuthorize": "true",
+    "Headers": [
+      {
+        "KeyName": "RequestModel",
+        "ValueName": "{'Children':['Address','Address.City', 'Address.City.State', 'Address.City.State.Country','DivisionHolidays']}"
+      }
+    ]
+  },
+  "TenantId": 1,
+  "BaseEntityId": 1,
+  "ModuleId": 1,
+  "BaseFormId": 1
+}

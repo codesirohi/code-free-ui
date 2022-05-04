@@ -1,0 +1,2579 @@
+{
+	"Id": 1,
+	"FormName": "Staff AddEdit",
+	"Menu": "Staff",
+	"FormType": 2,
+	"GotoBack": true,
+	"Sections": [
+		{
+			"Id": 244,
+			"FormId": 1,
+			"SectionName": "General Details",
+			"SectionTypeName": "Normal",
+			"SectionAttributes": [
+				{
+					"Id": 225,
+					"AttributeId": 44,
+					"LabelName": "Title",
+					"ControlName": "selectTitles",
+					"ModelPropName": "Title",
+					"ModelPropType": "string",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						}
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a prefix",
+					"EndPoint": {
+						"EndpointAddress": "/v1/common/enums/TitleTypes",
+						"Id": 3,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": []
+					}
+				},
+				{
+					"Id": 226,
+					"AttributeId": 25,
+					"LabelName": "First Name",
+					"ControlName": "txtStaffName",
+					"ModelPropName": "StaffName",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 3,
+							"Maxlength": 30,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 1227,
+					"AttributeId": 25,
+					"LabelName": "Middle Name",
+					"ControlName": "txtMiddleName",
+					"ControlType": "text",
+					"ModelPropName": "MiddleName",
+					"ModelPropType": "string",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": false,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 1227,
+					"AttributeId": 25,
+					"LabelName": "Last Name",
+					"ControlName": "txtLastName",
+					"ControlType": "text",
+					"ModelPropName": "LastName",
+					"ModelPropType": "string",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 2,
+							"Maxlength": 20,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 22,
+					"AttributeId": 25,
+					"LabelName": "Rate/hr",
+					"ControlName": "txtRate",
+					"ModelPropName": "BaseHourlyBillingRate",
+					"ModelPropType": "number",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+						{
+							"EventName": "onkeypress",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 2235,
+					"AttributeId": 44,
+					"LabelName": "Org Designation",
+					"ControlName": "selectOrgDesignationNames",
+					"ModelPropName": "OrgDesignationId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						}
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a Designation",
+					"EndPoint": {
+						"EndpointAddress": "/v1/OrgDesignations/getlist",
+						"Id": 3,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "Designation"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							}
+						]
+					}
+				},
+				{
+					"Id": 8,
+					"AttributeId": 23,
+					"LabelName": "Phone Number",
+					"ControlName": "txtPhone",
+					"ModelPropType": "string",
+					"ModelPropName": "Phone",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [
+						{
+							"EventName": "onkeypress",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Pattern": "",
+							"ValidationMsg": "* Enter a Valid Number",
+							"Minlength": 8,
+							"Maxlength": 16,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 566,
+					"AttributeId": 25,
+					"LabelName": "Divisions",
+					"ControlName": "selectDivisions",
+					"ModelPropName": "DivisionId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"DependentOptionsForSelectNList": {
+						"Id": 2,
+						"AttributeId": 3,
+						"GetEndpoint": "",
+						"KeyField": "",
+						"ValueField": ""
+					},
+					"Validators": [
+						{
+							"Required": true
+						}
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a Division",
+					"EndPoint": {
+						"EndpointAddress": "/v1/divisions/getlist",
+						"Id": 8,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "DivisionNRegionName "
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							},
+							{
+								"KeyName": "RequestModel",
+								"ValueName": "{'Children':['Region']}"
+							}
+						]
+					}
+				},
+				{
+					"Id": 22315,
+					"AttributeId": 44,
+					"LabelName": "Business Units",
+					"ControlName": "selectBusinessUnits",
+					"ModelPropName": "BusinessUnitId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						}
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a BusinessUnit",
+					"EndPoint": {
+						"EndpointAddress": "/v1/BusinessUnits/getlist",
+						"Id": 3,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "BUName"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							}
+						]
+					}
+				},
+				{
+					"Id": 6,
+					"AttributeId": 23,
+					"LabelName": "Login Name(email)",
+					"ControlName": "txtLoginName",
+					"ModelPropType": "string",
+					"ModelPropName": "LoginName",
+					"ControlType": "email",
+					"ValueType": "email",
+					"Events": [
+						{
+							"EventName": "onblur",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "/v1/common/CheckUserData/{fieldName}/{input}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 6,
+							"Maxlength": 100,
+							"Required": true,
+							"ServiceValidationToReact": true,
+							"ValidationMsg": "Login name already exists",
+							"AdditionalValidator": [
+								{
+									"TagToReplace": "{fieldName}",
+									"ValueTakenFrom": "Model"
+								},
+								{
+									"TagToReplace": "{input}",
+									"ValueTakenFrom": "Control"
+								}
+							]
+						}
+					]
+				},
+				{
+					"Id": 18,
+					"AttributeId": 31,
+					"LabelName": "Email",
+					"ControlName": "textEmail",
+					"ModelPropName": "EmailId",
+					"ModelPropType": "string",
+					"ControlType": "email",
+					"ValueType": "email",
+					"Events": [
+						{
+							"EventName": "onblur",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 6,
+							"Maxlength": 100,
+							"ValidationMsg": "* Enter Valid Email",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 214,
+					"AttributeId": 25,
+					"LabelName": "Resource Provider",
+					"ControlName": "selectResourceProviders",
+					"ModelPropName": "ResourceProviderDetailId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": false
+						}
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a ResourceProviderTypes('Vendor','Other')",
+					"EndPoint": {
+						"EndpointAddress": "/v1/common/enums/ResourceProviderTypes",
+						"Id": 8,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": []
+					}
+				},
+				{
+					"Id": 2316,
+					"AttributeId": 25,
+					"LabelName": "FullTime",
+					"ControlName": "chkFullTime",
+					"ModelPropName": "IsFullTimeWorking",
+					"ModelPropType": "boolean",
+					"ControlType": "checkbox",
+					"ValueType": "checkbox",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "",
+					"Validators": []
+				},
+				{
+					"Id": 2316,
+					"AttributeId": 25,
+					"LabelName": "Active",
+					"ControlName": "chkActive",
+					"ModelPropName": "IsActive",
+					"ModelPropType": "boolean",
+					"ControlType": "checkbox",
+					"ValueType": "checkbox",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "",
+					"Validators": []
+				},
+				{
+					"Id": 2316,
+					"AttributeId": 25,
+					"LabelName": "IsBillable",
+					"ControlName": "chkIsBillable",
+					"ModelPropName": "IsBillable",
+					"ModelPropType": "boolean",
+					"ControlType": "checkbox",
+					"ValueType": "checkbox",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "",
+					"Validators": []
+				},
+				{
+					"Id": 211,
+					"AttributeId": 252,
+					"LabelName": "",
+					"ControlName": "hiddenStaffUserId",
+					"ControlType": "hidden",
+					"ModelPropName": "StaffUserId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText"
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 121,
+			"FormId": 1,
+			"SectionName": "Profile",
+			"SectionTypeName": "Normal",
+			"SectionAttributes": [
+				{
+					"Id": 22213,
+					"AttributeId": 23,
+					"LabelName": "ExperienceInYears",
+					"ControlName": "txtExperienceInYears",
+					"ModelPropName": "ExperienceInYears",
+					"ControlType": "text",
+					"ValueType": "text",
+					"ModelPropType": "number",
+					"Events": [
+						{
+							"EventName": "onkeypress",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 355,
+					"AttributeId": 25,
+					"LabelName": "Experience(Month)",
+					"ControlName": "txtExperienceMonths",
+					"ControlType": "text",
+					"ModelPropName": "ExperienceInMonths",
+					"ModelPropType": "number",
+					"ValueType": "text",
+					"Events": [
+						{
+							"EventName": "onkeypress",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 266,
+					"AttributeId": 25,
+					"LabelName": "Date Of Birth",
+					"ControlName": "txtDOB",
+					"ModelPropName": "DOB",
+					"ModelPropType": "date",
+					"ControlType": "date",
+					"ValueType": "date",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true,
+							"MinRange": 16,
+							"MaxRange": 60
+						}
+					]
+				},
+				{
+					"Id": 666,
+					"AttributeId": 25,
+					"LabelName": "Resume",
+					"ControlName": "fileResume",
+					"ModelPropName": "ResumeFileGuid",
+					"ModelPropType": "",
+					"ControlType": "file",
+					"ValueType": "file",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "/v1/File/ServerFile",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "platform"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"SecondaryEntity": {
+						"ModelPropName": "FileName",
+						"ControlProperty": "Value"
+					},
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "",
+					"Validators": [
+						{
+							"Required": false
+						}
+					]
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenId",
+					"ControlType": "hidden",
+					"ModelPropName": "Id",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "StaffAddressId",
+					"ControlType": "hidden",
+					"ModelPropName": "StaffAddressId",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 2110,
+					"AttributeId": 25,
+					"LabelName": "Entity State",
+					"ControlName": "hiddenEntitystate",
+					"ControlType": "hidden",
+					"ModelPropName": "EntityState",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 21101,
+					"AttributeId": 25,
+					"LabelName": "Row Version",
+					"ControlName": "hiddenRowVersion",
+					"ControlType": "hidden",
+					"ModelPropName": "RowVersion",
+					"ModelPropType": "string",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 1541,
+			"FormId": 1,
+			"SectionName": "Address & Contact",
+			"ModelObjectName": "StaffAddress",
+			"SectionTypeName": "object",
+			"SectionAttributes": [
+				{
+					"Id": 8,
+					"AttributeId": 23,
+					"LabelName": "Phone Number",
+					"ControlName": "txtPhone",
+					"ModelPropType": "string",
+					"ModelPropName": "Phone",
+					"ControlType": "string",
+					"ValueType": "text",
+					"Events": [
+						{
+							"EventName": "onkeypress",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Pattern": "",
+							"ValidationMsg": "* Enter a Valid Number",
+							"Minlength": 8,
+							"Maxlength": 16,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 13,
+					"AttributeId": 25,
+					"LabelName": "Country",
+					"ControlName": "selectCountries",
+					"ControlType": "select",
+					"ValueType": "select",
+					"ModelPropName": "CountryId",
+					"ModelPropType": "number",
+					"Title": "",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "4",
+							"affectedControlName": "selectStates",
+							"affectedControlModelName": "StateId",
+							"EndPoint": {
+								"EndpointAddress": "/v1/states/getlist?countryid={keyId}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "StateName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						}
+					],
+					"CurrentValue": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						}
+					],
+					"IncludeRefresh": true,
+					"EndPoint": {
+						"EndpointAddress": "/v1/countries/getlist",
+						"Id": 11,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "false",
+						"IsAuthorize": "false",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "CountryName"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							}
+						]
+					}
+				},
+				{
+					"Id": 14,
+					"AttributeId": 41,
+					"LabelName": "State",
+					"ControlName": "selectStates",
+					"ControlType": "select",
+					"ValueType": "select",
+					"ModelPropName": "StateId",
+					"ModelPropType": "number",
+					"Title": "",
+					"Events": [
+						{
+							"EventName": "onchange",
+							"ParentControlId": "4",
+							"affectedControlName": "selectCities",
+							"affectedControlModelName": "CityId",
+							"IsLevel3": true,
+							"EndPoint": {
+								"EndpointAddress": "/v1/cities/getlist?stateid={keyId}",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "CityName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						}
+					],
+					"CurrentValue": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						}
+					]
+				},
+				{
+					"Id": 13,
+					"AttributeId": 25,
+					"LabelName": "City",
+					"ControlName": "selectCities",
+					"ControlType": "select",
+					"ModelPropName": "CityId",
+					"ModelPropType": "number",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "largeText",
+					"EndPoint": {
+						"EndpointAddress": "",
+						"Id": 11,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "false",
+						"IsAuthorize": "false",
+						"Headers": []
+					},
+					"Validators": [
+						{
+							"Required": true
+						}
+					]
+				},
+				{
+					"Id": 12,
+					"AttributeId": 37,
+					"LabelName": "Zipcode",
+					"ControlName": "txtZipcode",
+					"ModelPropName": "ZipCode",
+					"ModelPropType": "string",
+					"ControlType": "string",
+					"ValueType": "text",
+					"Events": [
+						{
+							"EventName": "onkeypress",
+							"ParentControlId": "7",
+							"EndPoint": {
+								"EndpointAddress": "",
+								"Id": 10,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "false",
+								"IsAuthorize": "false",
+								"Headers": [],
+								"ModuleName": "projectplus"
+							},
+							"RouteEntry": null,
+							"affectedControlName": "",
+							"Behaviour": ""
+						}
+					],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 4,
+							"Maxlength": 6,
+							"Pattern": "",
+							"ValidationMsg": "* Enter valid zipcode",
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 9,
+					"AttributeId": 33,
+					"LabelName": "Street Address",
+					"ControlName": "txtStreetAddress",
+					"ModelPropName": "StreetAddress",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"Validators": [
+						{
+							"Minlength": 10,
+							"Maxlength": 255,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 21,
+					"AttributeId": 25,
+					"LabelName": "Landmark",
+					"ControlName": "txtLandmark",
+					"ModelPropName": "Description",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"HelpText": "The keyword can help in search",
+					"Validators": [
+						{
+							"Minlength": 1,
+							"Maxlength": 255,
+							"Required": false,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenAdressId",
+					"ControlType": "hidden",
+					"ModelPropName": "Id",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 2110,
+					"AttributeId": 25,
+					"LabelName": "Entity State",
+					"ControlName": "hiddenEntitystate",
+					"ControlType": "hidden",
+					"ModelPropName": "EntityState",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 2334520,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Secondary Staff Division",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 234527,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 2222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddStaffDivision",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblStaffDivision",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 232431,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblStaffDivision",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "StaffDivisions",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 2142,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 211401,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 24141,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenDivisionStaffId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "StaffId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 29842,
+							"AttributeId": 25,
+							"LabelName": "Division",
+							"ControlName": "selectDivision",
+							"ControlType": "tblselect",
+							"ModelPropName": "DivisionId",
+							"ModelPropType": "number",
+							"IsHidden": false,
+							"ValueType": "select",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col1HeaderClass1",
+							"CssClassName": "col1Class1",
+							"Validators": [
+								{
+									"Required": true
+								}
+							],
+							"IncludeRefresh": true,
+							"HelpText": "Choose a Division ",
+							"EndPoint": {
+								"EndpointAddress": "/v1/divisions/getlist",
+								"Id": 4,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"ModuleName": "projectplus",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "DivisionNRegionName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									},
+									{
+										"KeyName": "RequestModel",
+										"ValueName": "{'Children':['Region']}"
+									}
+								]
+							}
+						},
+						{
+							"Id": 21144322,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteStaffDivision",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblStaffDivision",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 2320,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Primary Skill",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 23527,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 2222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddPrimarySkill",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblPrimarySkill",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 23231,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblPrimarySkill",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "StaffPrimarySkills",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 211,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenPrimarySkillId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "SkillId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 211,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenPrimaryStaffId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "StaffId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Primary Skill",
+							"ControlName": "typoselectSkill",
+							"ControlType": "tbltyposelect",
+							"ModelPropName": "SkillName",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [
+								{
+									"EventName": "onkeyup",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "/v1/Skills/Search",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [
+											{
+												"KeyName": "KeyName",
+												"ValueName": "Id"
+											},
+											{
+												"KeyName": "ValueName",
+												"ValueName": "SkillName"
+											}
+										],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"affectedControlModelName": "SkillId",
+									"Behaviour": ""
+								},
+								{
+									"EventName": "onblur",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"Behaviour": ""
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col1HeaderClass1",
+							"CssClassName": "col1Class1",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 30,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 211422,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeletePrimarySkill",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblPrimarySkill",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 23430,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Secondary Skill",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 232227,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 22222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddSecondarySkill",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblSecondarySkill",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 2323431,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblSecondarySkill",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "StaffSecondarySkills",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 211,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenSecondarySkillId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "SkillId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 211,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenSecondaryStaffId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "StaffId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Secondary Skill",
+							"ControlName": "typoselectSecondarySkill",
+							"ControlType": "tbltyposelect",
+							"ModelPropName": "SkillName",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [
+								{
+									"EventName": "onkeyup",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "/v1/Skills/Search",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"HelpText":"It's Optional",
+										"Headers": [
+											{
+												"KeyName": "KeyName",
+												"ValueName": "Id"
+											},
+											{
+												"KeyName": "ValueName",
+												"ValueName": "SkillName"
+											}
+										],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"affectedControlModelName": "SkillId",
+									"Behaviour": ""
+								},
+								{
+									"EventName": "onblur",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"Behaviour": ""
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col1HeaderClass1",
+							"CssClassName": "col1Class1",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 30,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 211422,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteSecondarySkill",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblSecondarySkill",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 23230,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Staff Education",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 2327,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddEducation",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblEducation",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 23231,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblEducation",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "StaffEducations",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 2411,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenEducationId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EducationId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenEducationStaffId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "StaffId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 2982,
+							"AttributeId": 25,
+							"LabelName": "EducationType",
+							"ControlName": "selectEducationTypes",
+							"ControlType": "tblselect",
+							"ModelPropName": "EducationTypeId",
+							"ModelPropType": "number",
+							"IsHidden": false,
+							"ValueType": "select",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col3HeaderClass1",
+							"CssClassName": "col3Class1",
+							"Validators": [
+								{
+									"Minlength": 2,
+									"Maxlength": 50,
+									"Required": false,
+									"AdditionalValidator": {}
+								}
+							],
+							"EndPoint": {
+								"EndpointAddress": "/v1/EducationTypes/getlist",
+								"Id": 4,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"ModuleName": "projectplus",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "EducationTypeName"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						},
+						{
+							"Id": 243122,
+							"AttributeId": 2335,
+							"LabelName": "Institute Name",
+							"ControlName": "typoselectInstituteName",
+							"ControlType": "tbltyposelect",
+							"ModelPropName": "EducationInstituteName",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [
+								{
+									"EventName": "onkeyup",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "/v1/Educations/Search",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [
+											{
+												"KeyName": "KeyName",
+												"ValueName": "Id"
+											},
+											{
+												"KeyName": "ValueName",
+												"ValueName": "InstituteName"
+											}
+										],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"affectedControlModelName": "EducationId",
+									"Behaviour": ""
+								},
+								{
+									"EventName": "onblur",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"Behaviour": ""
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col3HeaderClass2",
+							"CssClassName": "col3Class2",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 30,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 211,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenEducationId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EducationId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText"
+						},
+						{
+							"Id": 2431522,
+							"AttributeId": 2335,
+							"LabelName": "Percentage",
+							"ControlName": "txtPercentage",
+							"ControlType": "tbltext",
+							"ModelPropName": "Percentage",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col3HeaderClass3",
+							"CssClassName": "col3Class3",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 30,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 211422,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteEducation",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblEducation",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 28730,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Staff Certifications",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 232887,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddCertifications",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblCertifications",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 23231,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblCertifications",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "StaffCertifications",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenStaffCertificationId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenCertificationId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "CertificationId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenStaffCertificationStaffId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "StaffId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Certifications",
+							"ControlName": "typoselectCertificationName",
+							"ControlType": "tbltyposelect",
+							"ModelPropName": "CertificationName",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [
+								{
+									"EventName": "onkeyup",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "/v1/Certifications/Search",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [
+											{
+												"KeyName": "KeyName",
+												"ValueName": "Id"
+											},
+											{
+												"KeyName": "ValueName",
+												"ValueName": "CertificationName"
+											}
+										],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"affectedControlModelName": "CertificationId",
+									"Behaviour": ""
+								},
+								{
+									"EventName": "onblur",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"affectedControlModelName": "",
+									"Behaviour": ""
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col4HeaderClass1",
+							"CssClassName": "col4Class1",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 2500,
+									"Required": false,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Institute Name",
+							"ControlName": "txtInstituteName",
+							"ControlType": "tbltext",
+							"ModelPropName": "InstituteName",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col4HeaderClass2",
+							"CssClassName": "col4Class2",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 2500,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Duration in months",
+							"ControlName": "txtDurationInMonths",
+							"ControlType": "tbltext",
+							"ModelPropName": "DurationInMonth",
+							"ModelPropType": "number",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col4HeaderClass3",
+							"CssClassName": "col4Class3",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 2500,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Description",
+							"ControlName": "txtCertificationDescription",
+							"ControlType": "tbltext",
+							"ModelPropName": "Description",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col4HeaderClass4",
+							"CssClassName": "col4Class4",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 2500,
+									"Required": false,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 21122,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteCertification",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblCertifications",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 534364,
+			"FormId": 1,
+			"SectionTypeName": "Normal",
+			"SectionName": "Vendor Details",
+			"SectionAttributes": [
+				{
+					"Id": 779,
+					"AttributeId": 25,
+					"LabelName": "Joining Date*",
+					"ControlName": "lbJoiningDate",
+					"ModelPropName": "JoiningDate",
+					"ModelPropType": "date",
+					"ControlType": "date",
+					"ValueType": "date",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": false
+						}
+					]
+				},
+				{
+					"Id": 963,
+					"AttributeId": 25,
+					"LabelName": "Expiry Date*",
+					"ControlName": "lbExpiryDate",
+					"ModelPropName": "ExpiryDate",
+					"ModelPropType": "date",
+					"ControlType": "date",
+					"ValueType": "date",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": false
+						}
+					]
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		}
+	],
+	"EndPoint": {
+		"EndpointAddress": "v1/Staff",
+		"Id": 1,
+		"Protocol": "GET",
+		"ReturnType": "KeyValue",
+		"Version": "1",
+		"IsAuthenticated": "true",
+		"IsAuthorize": "true",
+		"Headers": [
+			{
+				"KeyName": "RequestModel",
+				"ValueName": "{'Children':['StaffDivisions', 'StaffAddress','StaffAddress.City', 'StaffAddress.City.State', 'StaffAddress.City.State.Country','StaffProfiles','StaffPrimarySkills.Skill', 'StaffSecondarySkills.Skill','StaffEducations.Education','StaffCertifications.Certification']}"
+			}
+		]
+	},
+	"TenantId": 1,
+	"BaseEntityId": 1,
+	"ModuleId": 1,
+	"BaseFormId": 1
+}

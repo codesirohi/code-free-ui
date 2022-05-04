@@ -1,0 +1,1044 @@
+{
+	"Id": 1321,
+	"FormName": "Project AddEdit",
+	"Menu": "Project",
+	"FormType": 2,
+	"GotoBack":true,
+	"Sections": [
+		{
+			"Id": 4324,
+			"FormId": 1,
+			"SectionName": "Project Add",
+			"SectionTypeName": "normal",
+			"SectionAttributes": [
+				{
+					"Id": 22130,
+					"AttributeId": 25,
+					"LabelName": "Client",
+					"ControlName": "selectClients",
+					"ControlType": "select",
+					"ModelPropName": "ServiceProviderClientId",
+					"ModelPropType": "number",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						   }
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a Client",
+					"EndPoint": {
+						"EndpointAddress": "/v1/ServiceProviderClients/getlist",
+						"Id": 1333,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "ClientName"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							},
+							{
+								"KeyName": "RequestModel",
+								"ValueName": "{'Children':['Client']}"
+							}
+						]
+					}
+				},
+				{
+					"Id": 24324,
+					"AttributeId": 25,
+					"LabelName": "Project Name",
+					"ControlName": "txtProjectName",
+					"ModelPropName": "ProjectName",
+					"ModelPropType": "string",
+					"ControlType": "text",
+					"ValueType": "text",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Minlength": 5,
+							"Maxlength": 30,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 9768,
+					"AttributeId": 25,
+					"LabelName": "Lead",
+					"ControlName": "selectLeads",
+					"ModelPropName": "LeadId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"Required": true
+						   }
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a Lead which is actually a 'ServiceProviderClientEmployees' ",
+					"EndPoint": {
+						"EndpointAddress": "/v1/ServiceProviderClientEmployees/getlist",
+						"Id": 1333,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "EmailId"
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							},
+							{
+								"KeyName": "RequestModel",
+								"ValueName": "{'Children':['ServiceProviderClient']}"
+							}
+						]
+					}
+				},
+		
+				{
+					"Id": 765,
+					"AttributeId": 25,
+					"LabelName": "Start",
+					"ControlName": "txtStart",
+					"ModelPropName": "StartDate",
+					"ModelPropType": "date",
+					"ControlType": "date",
+					"ValueType": "date",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "largeText",
+					"Validators": [
+						{
+							"minDate":"",
+							"maxDate":"",
+							"Required": true,
+							"AdditionalValidator": {},
+							"DateValidators" :[
+							{
+								"affectedControl":"txtEnd",
+								"rule":"<=",
+								"isGlobalyAffectedControl":true,
+								"msg":"Start date should be less than or equal to end date."
+							}
+							]
+						}
+					]
+				},
+				{
+					"Id": 23325,
+					"AttributeId": 25,
+					"LabelName": "End",
+					"ControlName": "txtEnd",
+					"ModelPropName": "EndDate",
+					"ModelPropType": "date",
+					"ControlType": "date",
+					"ValueType": "date",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": [
+						{
+							"minDate":-120,
+							"maxDate":180,
+							
+							"Required": true,
+							"AdditionalValidator": {},
+							"DateValidators" :[{
+								"affectedControl":"txtStart",
+								"rule":">=",
+								"isGlobalyAffectedControl":true,
+								"msg":"End date should be greater than or equal to start date."
+							}
+							]
+						}
+					]
+				},
+				{
+					"Id": 566,
+					"AttributeId": 25,
+					"LabelName": "Division",
+					"ControlName": "selectDivisions",
+					"ModelPropName": "DivisionId",
+					"ModelPropType": "number",
+					"ControlType": "select",
+					"ValueType": "select",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"DependentOptionsForSelectNList": {
+						"Id": 2,
+						"AttributeId": 3,
+						"GetEndpoint": "",
+						"KeyField": "",
+						"ValueField": ""
+					},
+					"Validators": [
+						{
+							"Required": true
+						   }
+					],
+					"IncludeRefresh": true,
+					"HelpText": "Choose a Division ",
+					"EndPoint": {
+						"EndpointAddress": "/v1/divisions/getlist",
+						"Id": 8,
+						"Protocol": "GET",
+						"ReturnType": "KeyValue",
+						"Version": "1",
+						"IsAuthenticated": "true",
+						"IsAuthorize": "true",
+						"Headers": [
+							{
+								"KeyName": "KeyName",
+								"ValueName": "Id"
+							},
+							{
+								"KeyName": "ValueName",
+								"ValueName": "DivisionNRegionName "
+							},
+							{
+								"KeyName": "IncludeSelect",
+								"ValueName": "true"
+							},
+							{
+								"KeyName": "RequestModel",
+								"ValueName": "{'Children':['Region']}"
+							}
+						]
+					}
+				},
+				{
+					"Id": 2445,
+					"AttributeId": 25,
+					"LabelName": "Introduction & Project Objectives",
+					"ControlName": "textareaDescription",
+					"ModelPropName": "Description",
+					"ModelPropType": "string",
+					"ControlType": "textarea",
+					"ValueType": "textarea",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "col-sm-3",
+					"Validators": [
+						{
+							"Minlength": 0,
+							"Maxlength": 1000,
+							"Required": true,
+							"AdditionalValidator": {}
+						}
+					]
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "hiddenId",
+					"ControlType": "hidden",
+					"ModelPropName": "Id",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 0,
+					"AttributeId": 25,
+					"LabelName": "",
+					"ControlName": "AutoOffset",
+					"ControlType": "hidden",
+					"ModelPropName": "AutoOffset",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				  },
+				{
+					"Id": 2110,
+					"AttributeId": 25,
+					"LabelName": "Entity State",
+					"ControlName": "hiddenEntitystate",
+					"ControlType": "hidden",
+					"ModelPropName": "EntityState",
+					"ModelPropType": "number",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				},
+				{
+					"Id": 21101,
+					"AttributeId": 25,
+					"LabelName": "Row Version",
+					"ControlName": "hiddenRowVersion",
+					"ControlType": "hidden",
+					"ModelPropName": "RowVersion",
+					"ModelPropType": "string",
+					"ValueType": "hidden",
+					"Events": [],
+					"CurrentValue": "",
+					"Title": "",
+					"CssClassName": "medText",
+					"Validators": []
+				}
+			],
+			"DisplayOrder": 1,
+			"Operations": [],
+			"SubSections": [],
+			"BaseEntityId": 1,
+			"IsMultiplicity": false,
+			"ParentSectionId": 3
+		},
+		{
+			"Id": 230,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Project Roles",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			"SubSections": [
+				{
+					"Id": 237,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 2552,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddProjectRoles",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "10",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblProjectRoles",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 231,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "table",
+					"SectionName": "tblProjectRoles",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "ProjectRoles",
+					"UniqueKeys":["selectDesignation","txtProjectRoleName"],
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 211,
+							"AttributeId": 252,
+							"LabelName": "",
+							"ControlName": "hiddenSkillId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "SkillId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText"
+
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						  },
+						{
+							"Id": 21222,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenProjectId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "ProjectId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 2982,
+							"AttributeId": 25,
+							"LabelName": "Designation",
+							"ControlName": "selectDesignation",
+							"ControlType": "tblselect",
+							"ModelPropName": "OrgDesignationId",
+							"ModelPropType": "number",
+							"IsHidden": false,
+							"ValueType": "select",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass1",
+							"CssClassName": "col7Class1",
+							"Validators": [
+								{
+									"Required": true
+								}
+							],
+							"IncludeRefresh": true,
+							"HelpText": "Choose a Designation ",
+							"EndPoint": {
+								"EndpointAddress": "/v1/OrgDesignations/getlist",
+								"Id": 4,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"ModuleName": "projectplus",
+								"Headers": [
+									{
+										"KeyName": "KeyName",
+										"ValueName": "Id"
+									},
+									{
+										"KeyName": "ValueName",
+										"ValueName": "Designation"
+									},
+									{
+										"KeyName": "IncludeSelect",
+										"ValueName": "true"
+									}
+								]
+							}
+						},
+						{
+							"Id": 29812,
+							"AttributeId": 25,
+							"LabelName": "Stages",
+							"ControlName": "selectStage",
+							"ControlType": "tblselect",
+							"ModelPropName": "Stage",
+							"ModelPropType": "number",
+							"IsHidden": false,
+							"ValueType": "select",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass2",
+							"CssClassName": "col7Class2",
+							"Validators": [
+								{
+									"Required": true
+								}
+							],
+							"IncludeRefresh": true,
+							"HelpText": "Choose a Stage ,'Initiated','Approved' ",
+							"EndPoint": {
+								"EndpointAddress": "/v1/common/enums/ProjectRoleStages",
+								"Id": 8,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "true",
+								"IsAuthorize": "true",
+								"ModuleName": "projectplus",
+								"Headers": []
+							}
+						},
+						{
+							"Id": 24982,
+							"AttributeId": 25,
+							"LabelName": "Project Role Name",
+							"ControlName": "txtProjectRoleName",
+							"ControlType": "tbltext",
+							"ModelPropName": "ProjectRoleName",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass3",
+							"CssClassName": "col7Class3",
+							"Validators": [
+								{
+									"Minlength": 2,
+									"Maxlength": 50,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 29815552,
+							"AttributeId": 25,
+							"LabelName": "Role Location",
+							"ControlName": "selectRoleLocation",
+							"ControlType": "tblselect",
+							"ModelPropName": "ProjectRoleLocationId",
+							"ModelPropType": "number",
+							"IsHidden": false,
+							"ValueType": "select",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass4",
+							"CssClassName": "col7Class4",
+							"Validators": [
+								{
+									"Required": true
+								}
+							],
+							"IncludeRefresh": true,
+							"HelpText": "Choose a RoleLocation",
+							"EndPoint": {
+								"EndpointAddress": "/v1/common/enums/ProjectRoleLocations",
+								"Id": 8,
+								"Protocol": "GET",
+								"ReturnType": "KeyValue",
+								"Version": "1",
+								"IsAuthenticated": "true",
+								"IsAuthorize": "true",
+								"ModuleName": "projectplus",
+								"Headers": []
+							}
+						},
+						{
+							"Id": 24982,
+							"AttributeId": 26,
+							"LabelName": "Skills",
+							"ControlName": "typomultiselectSkills",
+							"ControlType": "tbltypomultiselect",
+							"ModelPropName": "ProjectRoleSkillIds",
+							"ModelPropName2": "ProjectRoleSkills",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [{
+								"EventName": "onkeyup",
+								"ParentControlId": "7",
+								"EndPoint": {
+									"EndpointAddress": "/v1/Skills/Search",
+									"Id": 10,
+									"Protocol": "GET",
+									"ReturnType": "KeyValue",
+									"Version": "1",
+									"IsAuthenticated": "false",
+									"IsAuthorize": "false",
+									"Headers": [
+										{
+											"KeyName": "KeyName",
+											"ValueName": "Id"
+										},
+										{
+											"KeyName": "ValueName",
+											"ValueName": "SkillName"
+										}
+									],
+									"ModuleName": "projectplus"
+								},
+								"RouteEntry": null,
+								"affectedControlName": "",
+								"affectedControlModelName": "SkillId",
+								"Behaviour": "",
+								"DataNotFoundEvents": [{
+									"EventName": "onfocusout",
+									"ParentControlId": "7",
+									"EndPoint": {
+										"EndpointAddress": "/v1/Skills",
+										"Id": 10,
+										"Protocol": "GET",
+										"ReturnType": "KeyValue",
+										"Version": "1",
+										"IsAuthenticated": "false",
+										"IsAuthorize": "false",
+										"Headers": [
+											
+										],
+										"ModuleName": "projectplus"
+									},
+									"RouteEntry": null,
+									"affectedControlName": "",
+									"affectedControlModelName": "SkillName",
+									"Behaviour": ""
+								}]
+							}],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass5",
+							"CssClassName": "col7Class5",
+							"Validators": [
+								{
+									"Minlength": 2,
+									"Maxlength": 20,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 2162,
+							"AttributeId": 25,
+							"LabelName": "Start Date",
+							"ControlName": "StartDate",
+							"ControlType": "tbldate",
+							"ModelPropName": "StartDate",
+							"ModelPropType": "date",
+							"IsHidden": false,
+							"ValueType": "date",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass6",
+							"CssClassName": "col7Class6",
+							"Validators": [
+								{
+									"minDate":"",
+									"maxDate":"",
+									"Required": true,
+									"AdditionalValidator": {},
+									"DateValidators" :[{
+										"affectedControl":"txtStart",
+										"rule":">=",
+										"isGlobalyAffectedControl":true,
+										"msg":"Project role start date should be greater than or equal to project start date."
+									},
+									{
+										"affectedControl":"txtEnd",
+										"rule":"<=",
+										"isGlobalyAffectedControl":true,
+										"msg":"Project role start date  should be less than or equal to project end date."
+									},
+									{
+										"affectedControl":"EndDate",
+										"rule":"<=",
+										"isGlobalyAffectedControl":false,
+										"msg":"Project role start date should be less than or equal to Project role end date."
+									}
+									]
+								}
+							]
+						},
+						{
+							"Id": 2102,
+							"AttributeId": 25,
+							"LabelName": "End Date",
+							"ControlName": "EndDate",
+							"ControlType": "tbldate",
+							"ModelPropName": "EndDate",
+							"ModelPropType": "date",
+							"IsHidden": false,
+							"ValueType": "date",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col7HeaderClass7",
+							"CssClassName": "col7Class7",
+							"Validators": [
+								{
+									"minDate":"",
+									"maxDate":"",
+									"Required": true,
+									"AdditionalValidator": {},
+									"DateValidators" :[{
+										"affectedControl":"txtStart",
+										"rule":">=",
+										"isGlobalyAffectedControl":true,
+										"msg":"Project role end date should be greater than or equal to project start date."
+									},
+									{
+										"affectedControl":"txtEnd",
+										"rule":"<=",
+										"isGlobalyAffectedControl":true,
+										"msg":"Project role end date  should be less than or equal to project end date."
+									},
+									{
+										"affectedControl":"StartDate",
+										"rule":">=",
+										"isGlobalyAffectedControl":false,
+										"msg":"Project role end date should be greater than or equal to Project role start date."
+									}
+									]
+								}
+							]
+						},
+						{
+							"Id": 2112,
+							"AttributeId": 25,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteProject",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "12",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblProjectRoles",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": [
+								{
+									"Minlength": 2,
+									"Maxlength": 50,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		},
+		{
+			"Id": 230,
+			"FormId": 34,
+			"BaseEntityId": 45,
+			"SectionName": "Project Requirements",
+			"SectionTypeName": "table",
+			"SectionAttributes": [],
+			"DisplayOrder": 6,
+			
+			"SubSections": [
+				{
+					"Id": 2327,
+					"FormId": 34,
+					"BaseEntityId": 45,
+					"SectionTypeName": "normal",
+					"SectionName": "Add Section",
+					"SectionAttributes": [
+						{
+							"Id": 222,
+							"AttributeId": 25,
+							"LabelName": "Add",
+							"ControlName": "btnAddRequirements",
+							"ControlType": "tblbutton",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "13",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblRequirements",
+									"Behaviour": "TableAddNewRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "fa fa-plus",
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				},
+				{
+					"Id": 23231,
+					"FormId": 94,
+					"BaseEntityId": 55,
+					"SectionTypeName": "table",
+					"SectionName": "tblRequirements",
+					"CssClassName": "col-md-12 table-bordered table-striped  no-more-tables",
+					"ModelCollectionName": "ProjectRequirements",
+					"Columns": [],
+					"SectionAttributes": [
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "Id",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 0,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "AutoOffset",
+							"ControlType": "tblhidden",
+							"ModelPropName": "AutoOffset",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						  },
+						{
+							"Id": 21222,
+							"AttributeId": 25,
+							"LabelName": "",
+							"ControlName": "hiddenProjectId",
+							"ControlType": "tblhidden",
+							"ModelPropName": "ProjectId",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "hiddenId",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 212,
+							"AttributeId": 25,
+							"LabelName": "EntityState",
+							"ControlName": "hiddenEntityState",
+							"ControlType": "tblhidden",
+							"ModelPropName": "EntityState",
+							"ModelPropType": "number",
+							"ValueType": "hidden",
+							"IsHidden": true,
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 21101,
+							"AttributeId": 25,
+							"LabelName": "Row Version",
+							"ControlName": "hiddenRowVersion",
+							"ControlType": "tblhidden",
+							"ModelPropName": "RowVersion",
+							"ModelPropType": "string",
+							"ValueType": "hidden",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "medText",
+							"Validators": []
+						},
+						{
+							"Id": 23122,
+							"AttributeId": 2335,
+							"LabelName": "Requirements",
+							"ControlName": "txtRequirements",
+							"ControlType": "tbltext",
+							"ModelPropName": "Requirements",
+							"ModelPropType": "string",
+							"IsHidden": false,
+							"ValueType": "text",
+							"Events": [],
+							"CurrentValue": "",
+							"Title": "",
+							"CssHeaderClassName":"col1HeaderClass1",
+							"CssClassName": "col1Class1",
+							"Validators": [
+								{
+									"Minlength": 0,
+									"Maxlength": 2500,
+									"Required": true,
+									"AdditionalValidator": {}
+								}
+							]
+						},
+						{
+							"Id": 21122,
+							"AttributeId": 245,
+							"LabelName": "Delete",
+							"ControlName": "btnDeleteProject",
+							"ControlType": "tblbuttonRowDelete",
+							"ModelPropName": "",
+							"ModelPropType": "",
+							"ValueType": "button",
+							"Events": [
+								{
+									"EventName": "onclick",
+									"ParentControlId": "14",
+									"EndPoint": null,
+									"RouteEntry": null,
+									"affectedControlName": "tblRequirements",
+									"Behaviour": "TableDeleteCurrentRow"
+								}
+							],
+							"CurrentValue": "",
+							"Title": "",
+							"CssClassName": "btn delete btn-xs btn-radius center blue",
+							"IconClass": "fa fa-trash",
+							"IncludeIcon": true,
+							"Validators": []
+						}
+					],
+					"DisplayOrder": 6,
+					"IsMultiplicity": false,
+					"Operations": null,
+					"ParentSectionId": 23,
+					"SubSections": []
+				}
+			],
+			"IsMultiplicity": false,
+			"ParentSectionId": 23,
+			"Operations": []
+		}
+	],
+	"EndPoint": {
+		"EndpointAddress": "v1/projects",
+		"Id": 1,
+		"Protocol": "GET",
+		"ReturnType": "KeyValue",
+		"Version": "1",
+		"IsAuthenticated": "true",
+		"IsAuthorize": "true",
+		"Headers": [
+		{
+					"KeyName": "RequestModel",
+					"ValueName": "{'Children':['ProjectRoles','ProjectRequirements']}"
+				}
+				]
+	},
+	"TenantId": 1,
+	"BaseEntityId": 1,
+	"ModuleId": 1,
+	"BaseFormId": 1
+}
